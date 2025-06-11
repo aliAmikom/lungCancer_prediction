@@ -31,6 +31,6 @@ SMOKING, YELLOW_FINGERS, ANXIETY, PEER_PRESSURE, CHRONICDISEASE, FATIGUE, ALLERG
   prediction = model.predict(features)[0]
   # Tampilkan hasil
   if prediction == 1:
-    st.error("Hasil: Positif Kanker")
+    st.error("Hasil: Tidak Kanker")
   else:
-    st.success("Hasil: Tidak Kanker")
+    st.success("Hasil: Positif Kanker")
