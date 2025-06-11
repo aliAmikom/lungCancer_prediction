@@ -11,7 +11,7 @@ with st.form("form_kanker"):
   YELLOW_FINGERS = st.number_input('Yellow Fingers', min_value=0, max_value=1)
   ANXIETY = st.number_input('ANXIETY', min_value=0, max_value=1)
   PEER_PRESSURE = st.number_input('PEER_PRESSURE', min_value=0, max_value=1)
-  CHRONIC DISEASE = st.number_input('CHRONIC DISEASE', min_value=0, max_value=1)
+  # CHRONIC DISEASE = st.number_input('CHRONIC DISEASE', min_value=0, max_value=1)
   FATIGUE = st.number_input('FATIGUE', min_value=0, max_value=1)
   ALLERGY = st.number_input('ALLERGY', min_value=0, max_value=1)
   WHEEZING = st.number_input('WHEEZING', min_value=0, max_value=1)
