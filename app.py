@@ -11,22 +11,22 @@ with st.form("form_kanker"):
   YELLOW_FINGERS = st.number_input('Yellow Fingers', min_value=0, max_value=1)
   ANXIETY = st.number_input('ANXIETY', min_value=0, max_value=1)
   PEER_PRESSURE = st.number_input('PEER_PRESSURE', min_value=0, max_value=1)
-  # CHRONIC DISEASE = st.number_input('CHRONIC DISEASE', min_value=0, max_value=1)
+  CHRONICDISEASE = st.number_input('CHRONIC DISEASE', min_value=0, max_value=1)
   FATIGUE = st.number_input('FATIGUE', min_value=0, max_value=1)
   ALLERGY = st.number_input('ALLERGY', min_value=0, max_value=1)
   WHEEZING = st.number_input('WHEEZING', min_value=0, max_value=1)
-  ALCOHOL CONSUMING = st.number_input('ALCOHOL CONSUMING', min_value=0, max_value=1)
+  ALCOHOLCONSUMING = st.number_input('ALCOHOL CONSUMING', min_value=0, max_value=1)
   COUGHING = st.number_input('COUGHING', min_value=0, max_value=1)
-  SHORTNESS OF BREATH = st.number_input('SHORTNESS OF BREATH', min_value=0, max_value=1)
-  SWALLOWING DIFFICULTY = st.number_input('SWALLOWING DIFFICULTY', min_value=0, max_value=1)
-  CHEST PAIN = st.number_input('CHEST PAIN', min_value=0, max_value=1)
+  SHORTNESSOFBREATH = st.number_input('SHORTNESS OF BREATH', min_value=0, max_value=1)
+  SWALLOWINGDIFFICULTY = st.number_input('SWALLOWING DIFFICULTY', min_value=0, max_value=1)
+  CHESTPAIN = st.number_input('CHEST PAIN', min_value=0, max_value=1)
   
   submit = st.form_submit_button("Proses")
 # Ketika tombol ditekan
 if submit:
 # Format input ke bentuk array
   features = np.array([[GENDER, AGE,
-SMOKING, YELLOW_FINGERS, ANXIETY, PEER_PRESSURE, CHRONIC DISEASE, FATIGUE, ALLERGY, WHEEZING, ALCOHOL CONSUMING, COUGHING, SHORTNESS OF BREATH, SWALLOWING DIFFICULTY, CHEST PAIN]])
+SMOKING, YELLOW_FINGERS, ANXIETY, PEER_PRESSURE, CHRONICDISEASE, FATIGUE, ALLERGY, WHEEZING, ALCOHOL CONSUMING, COUGHING, SHORTNESSOFBREATH, SWALLOWINGDIFFICULTY, CHESTPAIN]])
   # Prediksi
   prediction = model.predict(features)[0]
   # Tampilkan hasil
