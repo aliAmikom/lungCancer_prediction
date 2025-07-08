@@ -1,5 +1,6 @@
 import streamlit as st
 import numpy as np
+import pandas as pd
 import joblib
 from sklearn.preprocessing import StandardScaler
 model = joblib.load('lung_cancer.pkl')
@@ -27,12 +28,22 @@ with st.form("form_kanker"):
 # Ketika tombol ditekan
 if submit:
 # Format input ke bentuk array
-  features = np.array([[GENDER, AGE,
-SMOKING, YELLOW_FINGERS, ANXIETY, PEER_PRESSURE, CHRONICDISEASE, FATIGUE, ALLERGY, WHEEZING, ALCOHOLCONSUMING, COUGHING, SHORTNESSOFBREATH, SWALLOWINGDIFFICULTY, CHESTPAIN]])
+  # features = np.array([[GENDER, AGE,
+# SMOKING, YELLOW_FINGERS, ANXIETY, PEER_PRESSURE, CHRONICDISEASE, FATIGUE, ALLERGY, WHEEZING, ALCOHOLCONSUMING, COUGHING, SHORTNESSOFBREATH, SWALLOWINGDIFFICULTY, CHESTPAIN]])
+  data_dict = {
+    'GENDER': [GENDER], 'AGE': [AGE],
+    'SMOKING': [SMOKING], 'YELLOW_FINGERS': [YELLOW_FINGERS], 'ANXIETY': [ANXIETY],
+    'PEER_PRESSURE': [PEER_PRESSURE], 'CHRONIC DISEASE': [CHRONICDISEASE],
+    'FATIGUE': [FATIGUE], 'ALLERGY': [ALLERGY], 'WHEEZING': [WHEEZING],
+    'ALCOHOL CONSUMING': [ALCOHOLCONSUMING], 'COUGHING': [COUGHING],
+    'SHORTNESS OF BREATH': [SHORTNESSOFBREATH], 'SWALLOWING DIFFICULTY': [SWALLOWINGDIFFICULTY],
+    'CHEST PAIN': [CHESTPAIN]
+  }
+  features_df = pd.DataFrame(data_dict)
   # Scaler
-  features['AGE'] = scaler.transform(features['AGE'])
+  features_df['AGE'] = scaler.transform(features_df[['AGE']])
   # Prediksi
-  prediction = model.predict(features)[0]
+  prediction = model.predict(features_df)[0]
   # Tampilkan hasil
   if prediction == 1:
     st.error("Hasil: Positif Kanker")
