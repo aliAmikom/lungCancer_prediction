@@ -30,7 +30,7 @@ if submit:
   features = np.array([[GENDER, AGE,
 SMOKING, YELLOW_FINGERS, ANXIETY, PEER_PRESSURE, CHRONICDISEASE, FATIGUE, ALLERGY, WHEEZING, ALCOHOLCONSUMING, COUGHING, SHORTNESSOFBREATH, SWALLOWINGDIFFICULTY, CHESTPAIN]])
   # Scaler
-  features['AGE'] = scaler.transform(features[['AGE']])
+  features['AGE'] = scaler.transform(features['AGE'])
   # Prediksi
   prediction = model.predict(features)[0]
   # Tampilkan hasil
