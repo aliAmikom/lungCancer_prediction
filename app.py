@@ -1,7 +1,9 @@
 import streamlit as st
 import numpy as np
 import joblib
+from sklearn.preprocessing import StandardScaler
 model = joblib.load('lung_cancer.pkl')
+scaler = joblib.load('scaler.pkl')
 st.title("Prediksi Kanker PAru2")
 # Form input
 with st.form("form_kanker"):
@@ -27,6 +29,8 @@ if submit:
 # Format input ke bentuk array
   features = np.array([[GENDER, AGE,
 SMOKING, YELLOW_FINGERS, ANXIETY, PEER_PRESSURE, CHRONICDISEASE, FATIGUE, ALLERGY, WHEEZING, ALCOHOLCONSUMING, COUGHING, SHORTNESSOFBREATH, SWALLOWINGDIFFICULTY, CHESTPAIN]])
+  # Scaler
+  features['AGE'] = scaler.transform(features[['AGE']])
   # Prediksi
   prediction = model.predict(features)[0]
   # Tampilkan hasil
